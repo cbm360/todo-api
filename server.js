@@ -37,9 +37,8 @@ app.get('/todo/:id', function (req, res) {
     if (matchedTodo) {
         res.json(todos[todoId]);
     } else {
-        res.status(404).send();
+        res.status(404).send('No ID matches the request');
     }
-
 });
 
 app.listen(PORT, function () {
