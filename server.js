@@ -9,19 +9,21 @@ var todoNextId = 1;
 
 app.use(bodyParser.json());
 
-app.get('/', function (req, res) {
+app.get('/', function(req, res) {
     res.send('Todo API Root');
 });
 
 // GET /todos
-app.get('/todos', function (req, res) {
+app.get('/todos', function(req, res) {
     res.json(todos);
 });
 
 // GET /todos/:id
-app.get('/todo/:id', function (req, res) {
+app.get('/todo/:id', function(req, res) {
     var todoId = parseInt(req.params.id, 10);
-    var matchedTodo = _.findWhere(todos, {id: todoId});
+    var matchedTodo = _.findWhere(todos, {
+        id: todoId
+    });
 
     if (matchedTodo) {
         res.json(matchedTodo);
@@ -31,7 +33,7 @@ app.get('/todo/:id', function (req, res) {
 });
 
 // POST /todos
-app.post('/todos', function (req, res) {
+app.post('/todos', function(req, res) {
     var body = _.pick(req.body, 'description', 'completed');
 
     body.description = body.description.trim();
@@ -41,7 +43,7 @@ app.post('/todos', function (req, res) {
     }
 
     //add id field
-    body.id = todoNextId ++;
+    body.id = todoNextId++;
 
     //push body into array
     todos.push(body);
@@ -50,12 +52,16 @@ app.post('/todos', function (req, res) {
 });
 
 // DELETE /todos/:id
-app.delete('/todo/:id', function (req, res) {
+app.delete('/todo/:id', function(req, res) {
     var todoId = parseInt(req.params.id, 10);
-    var matchedTodo = _.findWhere(todos, {id: todoId});
+    var matchedTodo = _.findWhere(todos, {
+        id: todoId
+    });
 
     if (!matchedTodo) {
-        res.status(404).json({"error": "No todo found with that id."});
+        res.status(404).json({
+            "error": "No todo found with that id."
+        });
     } else {
         todos = _.without(todos, matchedTodo);
         res.json(matchedTodo);
@@ -64,9 +70,11 @@ app.delete('/todo/:id', function (req, res) {
 });
 
 // PUT /todo/:id
-app.put('/todos/:id', function (req, res) {
+app.put('/todos/:id', function(req, res) {
     var todoId = parseInt(req.params.id, 10);
-    var matchedTodo = _.findWhere(todos, {id: todoId});
+    var matchedTodo = _.findWhere(todos, {
+        id: todoId
+    });
     var body = _.pick(req.body, 'description', 'completed');
     var validAttributes = {};
 
@@ -92,6 +100,6 @@ app.put('/todos/:id', function (req, res) {
     res.json(matchedTodo);
 });
 
-app.listen(PORT, function () {
+app.listen(PORT, function() {
     console.log('Express listening on ' + PORT);
 });
