@@ -89,8 +89,8 @@ app.delete('/api/todo/:id', function(req, res) {
     });
 });
 
-// PUT /api/todos/:id
-app.put('/api/todos/:id', function(req, res) {
+// PATCH /api/todos/:id
+app.patch('/api/todos/:id', function(req, res) {
     var todoId = parseInt(req.params.id, 10);
     var body = _.pick(req.body, 'description', 'completed');
     var attributes = {};
