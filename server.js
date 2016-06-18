@@ -14,8 +14,8 @@ app.get('/', function(req, res) {
     res.send('Todo API Root');
 });
 
-// GET /todos?completed=false&q=work
-app.get('/todos', function(req, res) {
+// GET /api/todos?completed=false&q=work
+app.get('/api/todos', function(req, res) {
     var query = req.query;
     var where = {};
 
@@ -38,8 +38,8 @@ app.get('/todos', function(req, res) {
     });
 });
 
-// GET /todos/:id
-app.get('/todos/:id', function(req, res) {
+// GET /api/todos/:id
+app.get('/api/todos/:id', function(req, res) {
     var todoId = parseInt(req.params.id, 10);
 
     db.todo.findById(todoId).then(function (todo) {
@@ -53,8 +53,8 @@ app.get('/todos/:id', function(req, res) {
     });
 });
 
-// POST /todos
-app.post('/todos', function(req, res) {
+// POST /api/todos
+app.post('/api/todos', function(req, res) {
     var body = _.pick(req.body, 'description', 'completed');
 
     db.todo.create(body).then(function(todo) {
@@ -64,8 +64,8 @@ app.post('/todos', function(req, res) {
     });
 });
 
-// DELETE /todos/:id
-app.delete('/todo/:id', function(req, res) {
+// DELETE /api/todos/:id
+app.delete('/api/todo/:id', function(req, res) {
     var todoId = parseInt(req.params.id, 10);
 
     db.todo.destroy({
@@ -86,8 +86,8 @@ app.delete('/todo/:id', function(req, res) {
     });
 });
 
-// PUT /todos/:id
-app.put('/todos/:id', function(req, res) {
+// PUT /api/todos/:id
+app.put('/api/todos/:id', function(req, res) {
     var todoId = parseInt(req.params.id, 10);
     var body = _.pick(req.body, 'description', 'completed');
     var attributes = {};
