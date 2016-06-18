@@ -4,8 +4,8 @@ var myApp = angular.module('myApp', []);
 function mainController($scope, $http) {
     $scope.formData = {};
 
-    // when landing on the page, get all todos and show them
-    $http.get('/api/todos')
+    function getTodos() {
+        $http.get('/api/todos')
         .success(function(data) {
             $scope.todos = data;
             console.log(data);
@@ -13,6 +13,9 @@ function mainController($scope, $http) {
         .error(function(data) {
             console.log('Error: ' + data);
         });
+    }
+    // when landing on the page, get all todos and show them
+    getTodos();
 
     // when submitting the add form, send the text to the node API
     $scope.createTodo = function() {
@@ -21,6 +24,9 @@ function mainController($scope, $http) {
                 $scope.formData = {}; // clear the form so our user is ready to enter another
                 $scope.todos = data;
                 console.log(data);
+
+                // get refreshed list of todos
+                getTodos();
             })
             .error(function(data) {
                 console.log('Error: ' + data);
@@ -33,6 +39,9 @@ function mainController($scope, $http) {
             .success(function(data) {
                 $scope.todos = data;
                 console.log(data);
+
+                // get refreshed list of todos
+                getTodos();
             })
             .error(function(data) {
                 console.log('Error: ' + data);
