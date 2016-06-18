@@ -10,8 +10,11 @@ var todoNextId = 1;
 
 app.use(bodyParser.json());
 
+app.use(express.static(__dirname + '/public'));
+
+// Application frontend
 app.get('/', function(req, res) {
-    res.send('Todo API Root');
+    res.sendfile('./public/index.html');
 });
 
 // GET /api/todos?completed=false&q=work
