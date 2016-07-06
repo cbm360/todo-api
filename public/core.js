@@ -34,13 +34,15 @@ function mainController($scope, $http) {
     };
 
     // complete a todo by checking it
-    $scope.completeTodo = function(id) {
+    $scope.completeTodo = function(action, id) {
+        var completedBool = action.target.checked;
+        console.log(action);
         $http({
             method: 'PATCH',
             dataType: 'json',
             url: '/api/todos/' + id,
             data: {
-                completed: true
+                completed: completedBool
             },
             headers: {
                 "Content-Type": "application/json"
