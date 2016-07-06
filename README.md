@@ -8,14 +8,12 @@ Production http://todo-api-360paradigm.herokuapp.com/
 - Development built on a sqlite3 database
 - Production hosted on Heroku using postgresql database
 
-##### GET /api/todos
+##### GET `/api/todos`
 
-##### GET /api/todos/:id
+##### GET BY ID `/api/todos/:id`
 
-##### PATCH /api/todos/
+##### PATCH `/api/todos/:id`
 
-##### PATCH /api/todos/:id
-
-##### DELETE /api/todos/:id
+##### DELETE `/api/todos/:id`
 
 
