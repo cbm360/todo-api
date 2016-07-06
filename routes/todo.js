@@ -2,9 +2,12 @@ var express = require('express');
 var router = express.Router();
 var _ = require('underscore');
 var db = require('../db.js');
+var bodyParser = require('body-parser');
 
 var todos = [];
 var todoNextId = 1;
+
+router.use(bodyParser.json());
 
 // GET /api/todos?completed=false&q=work
 router.get('/todos', function(req, res) {
@@ -83,6 +86,8 @@ router.patch('/todos/:id', function(req, res) {
     var todoId = parseInt(req.params.id, 10);
     var body = _.pick(req.body, 'description', 'completed');
     var attributes = {};
+
+    console.log(body);
 
     if (body.hasOwnProperty('completed')) {
         attributes.completed = body.completed;

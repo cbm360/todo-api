@@ -33,6 +33,31 @@ function mainController($scope, $http) {
             });
     };
 
+    // complete a todo by checking it
+    $scope.completeTodo = function(id) {
+        $http({
+            method: 'PATCH',
+            dataType: 'json',
+            url: '/api/todos/' + id,
+            data: {
+                completed: true
+            },
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        .success(function(data) {
+            $scope.todos = data;
+            console.log(data);
+
+            // get refreshed list of todos
+            getTodos();
+        })
+        .error(function(data) {
+            console.log('Error' + data);
+        });
+    }
+
     // delete a todo after checking it
     $scope.deleteTodo = function(id) {
         $http.delete('/api/todo/' + id)
