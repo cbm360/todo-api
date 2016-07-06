@@ -26,15 +26,15 @@
 </head>
 <!-- SET THE CONTROLLER AND GET ALL TODOS -->
 <body ng-controller="mainController">
-    <div class="container">
+    <main class="container">
 
         <!-- HEADER AND TODO COUNT -->
-        <div class="jumbotron text-center">
+        <header class="jumbotron text-center">
             <h1>Things to do <span class="label label-info">{{ todos.length }}</span></h1>
-        </div>
+        </header>
 
         <!-- TODO LIST -->
-        <div id="todo-list" class="row">
+        <section id="todo-list" class="row">
             <div class="col-sm-4 col-sm-offset-4">
 
                 <!-- LOOP OVER THE TODOS IN $scope.todos -->
@@ -45,10 +45,10 @@
                 </div>
 
             </div>
-        </div>
+        </section>
 
         <!-- FORM TO CREATE TODOS -->
-        <div id="todo-form" class="row">
+        <section id="todo-form" class="row">
             <div class="col-sm-8 col-sm-offset-2 text-center">
                 <form>
                     <div class="form-group">
@@ -61,9 +61,9 @@
                     <button type="submit" class="btn btn-primary btn-lg" ng-click="createTodo()">Add</button>
                 </form>
             </div>
-        </div>
+        </section>
 
-    </div>
+    </main>
 
 </body>
 </html>
