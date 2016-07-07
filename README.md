@@ -1,4 +1,4 @@
-# NodeJS todo-api with AngularJS front end
+# NodeJS Todo-API with AngularJS Front End
 This project is an opportunity to gain experience with NodeJS, ExpressJS and AngularJS.
 
 ## API
