@@ -9,12 +9,20 @@ This project is an opportunity to gain experience with NodeJS, ExpressJS and Ang
 - GET All `/api/todos`
 - GET Completed/Incomplete `/api/todos?complete=true/false`
 - GET by ID `/api/todos/:id`
+ 
+##### POST `/api/todos`
+- Data {
+    descripiton: "todo descripiton",
+    completed: true/false,
+    CreatedAt: date will automatically be timestamped 
+  }
 
 ##### PATCH `/api/todos/:id`
 - DataType: application/json
 - Data {
     descripiton: "todo descripiton",
-    completed: true/false
+    completed: true/false,
+    UpdatedAt: date will automatically be timestamped
   }
 
 ##### DELETE `/api/todos/:id`
