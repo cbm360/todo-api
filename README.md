@@ -28,11 +28,11 @@ This project is an opportunity to gain experience with NodeJS, ExpressJS and Ang
 ##### DELETE `/api/todos/:id`
 
 ## Resources
-[Udemy Learn AngularJS](https://www.udemy.com/learn-angularjs/learn/v4/overview)
-
 [Live example](http://todo-api-360paradigm.herokuapp.com/)
 
 [GitHub Repo](https://github.com/cbm360/todo-api/)
+
+[Udemy Learn AngularJS](https://www.udemy.com/learn-angularjs/learn/v4/overview)
 
 ##License
 The content is licensed under the [MIT license](https://opensource.org/licenses/mit-license.php)
