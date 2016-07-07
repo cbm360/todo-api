@@ -12,16 +12,16 @@ This project is an opportunity to gain experience with NodeJS, ExpressJS and Ang
  
 ##### POST `/api/todos`
 - Data {
-    descripiton: "todo descripiton",
-    completed: true/false,
+    Descripiton: "todo descripiton",
+    Completed: true/false,
     CreatedAt: date will automatically be timestamped 
   }
 
 ##### PATCH `/api/todos/:id`
 - DataType: application/json
 - Data {
-    descripiton: "todo descripiton",
-    completed: true/false,
+    Descripiton: "todo descripiton",
+    Completed: true/false,
     UpdatedAt: date will automatically be timestamped
   }
 
