@@ -10,6 +10,9 @@
 
     <title>Node/Angular Todo App</title>
 
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/stylesheets/screen.css">
+
     <!-- SCROLLS -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"><!-- load bootstrap -->
     <style>
@@ -42,11 +45,13 @@
                     <thead>
                         <th>Done</th>
                         <th>Task</th>
+                        <th>Delete</th>
                     </thead>
                     <tbody ng-repeat="todo in todos">
                         <tr>
                             <td><input type="checkbox" ng-click="completeTodo($event, todo.id)" ng-checked="todo.completed"></td>
                             <td>{{ todo.description }}</td>
+                            <td class="text-center" ng-click="deleteTodo(todo.id)"><a>&#9747</a></td>
                         </tr>
                     </tbody>
                 </table>
@@ -60,7 +65,7 @@
                     <div class="form-group">
 
                         <!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
-                        <input type="text" class="form-control input-lg text-center" placeholder="I want to buy a puppy that will love me forever" ng-model="formData.description">
+                        <input type="text" class="form-control input-lg text-center" placeholder="To be done..." ng-model="formData.description">
                     </div>
 
                     <!-- createToDo() WILL CREATE NEW TODOS -->
