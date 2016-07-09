@@ -17,6 +17,21 @@ function mainController($scope, $http) {
     // when landing on the page, get all todos and show them
     getTodos();
 
+    // Toggle span to input and post update to todos on blur
+    $scope.toggleInput = function(action, id) {
+        var elem = $(action.target);
+        var $input = $("<input>", {
+                val: elem.text(),
+                type: "text"
+            });
+
+        elem.replaceWith($input);
+        $input.on("blur", function() {
+            $scope.updateTodo(id, $input.val());
+        });
+        $input.select();
+    };
+
     // when submitting the add form, send the text to the node API
     $scope.createTodo = function() {
         $http.post('/api/todos', $scope.formData)
@@ -32,6 +47,31 @@ function mainController($scope, $http) {
                 console.log('Error: ' + data);
             });
     };
+
+    // update a todo by clicking and editing text
+    $scope.updateTodo = function(id, description) {
+        $http({
+            method: 'PATCH',
+            dataType: 'json',
+            url: '/api/todos/' + id,
+            data: {
+                description: description
+            },
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        .success(function(data) {
+            $scope.todos = data;
+            console.log(data);
+
+            // get refreshed list of todos
+            getTodos();
+        })
+        .error(function(data) {
+            console.log('Error' + data);
+        });
+    }
 
     // complete a todo by checking it
     $scope.completeTodo = function(action, id) {

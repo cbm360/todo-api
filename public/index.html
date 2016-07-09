@@ -50,7 +50,7 @@
                     <tbody ng-repeat="todo in todos">
                         <tr>
                             <td><input type="checkbox" ng-click="completeTodo($event, todo.id)" ng-checked="todo.completed"></td>
-                            <td>{{ todo.description }}</td>
+                            <td><span ng-click="toggleInput($event, todo.id)">{{ todo.description }}</span></td>
                             <td class="text-center" ng-click="deleteTodo(todo.id)"><a>&#9747</a></td>
                         </tr>
                     </tbody>
